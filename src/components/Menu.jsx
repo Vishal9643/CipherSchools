@@ -51,6 +51,10 @@ const Item = styled.div`
   gap: 20px;
   cursor: pointer;
   padding: 4px 0px;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.div`
@@ -117,11 +121,18 @@ const Menu = ({ darkMode, setDarkMode }) => {
           History
         </Item>
         <Hr />
-        <Login>Sign in to like the video, comment and subscribe.</Login>
-        <Button>
-          <AccountCircleIcon />
-          Sign In
-        </Button>
+        <Login>
+          Sign in to like the video, comment and subscribe.
+          <Link
+            to="signin"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Button>
+              <AccountCircleIcon />
+              Sign In
+            </Button>
+          </Link>
+        </Login>
         <Hr />
         <Title>Best of VideoServer</Title>
         <Item>

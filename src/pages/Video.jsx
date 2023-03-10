@@ -4,9 +4,13 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ShareIcon from "@mui/icons-material/Share";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import Comments from "../components/Comments";
+import Card from "../components/Card";
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
+  gap: 20px;
 `;
 
 const Content = styled.div`
@@ -55,6 +59,7 @@ const Hr = styled.hr`
 
 const Recommendation = styled.div`
   flex: 2;
+  margin-left: 10px;
 `;
 
 const Channel = styled.div`
@@ -109,8 +114,8 @@ const Video = () => {
       <Content>
         <VideoWrapper>
           <iframe
-            width="1080px"
-            height="720px"
+            width="900px"
+            height="600px"
             src="https://www.youtube.com/embed/q8-rX-PNqog"
             title="Proud Moment for India as Australian PM sends Message to China from INS Vikrant Aircraft Carrier"
             frameborder="0"
@@ -160,8 +165,24 @@ const Video = () => {
           </ChannelInfo>
           <Subscribe>SUBSCRIBE</Subscribe>
         </Channel>
+        <Hr />
+        <Comments />
       </Content>
-      <Recommendation>Recommendation</Recommendation>
+      <Recommendation>
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+        <Card type="sm" />
+      </Recommendation>
     </Container>
   );
 };

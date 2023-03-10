@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 300px;
-  margin-bottom: 45px;
+  width: ${(props) => props.type !== "sm" && "300px"};
+  margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
   cursor: pointer;
+  display: ${(props) => props.type === "sm" && "flex"};
+  gap: 10px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 202px;
+  height: ${(props) => (props.type === "sm" ? "120px" : "202px")};
   background-color: #999;
   border-radius: 20px;
+  flex: 1;
 `;
 
 const Details = styled.div`
   display: flex;
-  margin-top: 16px;
+  margin-top: ${(props) => props.type !== "sm" && "16px"};
   gap: 12px;
+  flex: 1;
 `;
 
 const ChannelImage = styled.img`
@@ -26,6 +30,7 @@ const ChannelImage = styled.img`
   height: 36px;
   border-radius: 50%;
   background-color: #999;
+  display: ${(props) => props.type === "sm" && "none"};
 `;
 
 const Texts = styled.div``;
@@ -46,17 +51,25 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft};
 `;
 
-const Card = () => {
+const Card = ({ type }) => {
   return (
     <Link to="/video/test" style={{ textDecoration: "none" }}>
-      <Container>
-        <Image src="https://img.freepik.com/premium-vector/black-yellow-grunge-modern-youtube-thumbnail-background_562076-122.jpg" />
-        <Details>
-          <ChannelImage src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-youtube-social-media-round-icon-png-image_6315993.png" />
+      <Container type={type}>
+        <Image
+          type={type}
+          src="https://img.freepik.com/premium-vector/black-yellow-grunge-modern-youtube-thumbnail-background_562076-122.jpg"
+        />
+        <Details type={type}>
+          <ChannelImage
+            type={type}
+            src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-youtube-social-media-round-icon-png-image_6315993.png"
+          />
           <Texts>
             <Title>Test Video</Title>
             <ChannelName>Test Channel</ChannelName>
-            <Info>974,764 views • 14 hours ago </Info>
+            <Info>
+              974,764 views <br />• 14 hours ago{" "}
+            </Info>
           </Texts>
         </Details>
       </Container>
